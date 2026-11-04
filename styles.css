@@ -1,0 +1,675 @@
+@font-face {
+  font-family: Fraunces;
+  src: url("fonts/fraunces-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url("fonts/fraunces-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url("fonts/fraunces-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("fonts/atkinson-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("fonts/atkinson-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --cream: #f4efe6;
+  --oak: #ebe3d4;
+  --ink: #241910;
+  --ink-soft: #4a3c30;
+  --rule: #cbbba3;
+  --walnut: #261c16;
+  --cedar: #6e3b22;
+  --cedar-dark: #542c18;
+  --on-dark: #f4efe6;
+  --on-dark-soft: #e6d2b6;
+  --serif: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  --sans: "Atkinson Hyperlegible", "Avenir Next", "Segoe UI", sans-serif;
+  --wrap: min(70rem, calc(100% - 2.5rem));
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 12rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #6e3b22;
+  color: #fbf6ef;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 30;
+  padding: 0.7rem 1rem;
+  background: var(--ink);
+  color: var(--on-dark);
+  text-decoration: none;
+  font-weight: 700;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.wrap {
+  width: var(--wrap);
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--cream);
+  border-bottom: 1px solid var(--ink);
+}
+
+.header-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.25rem;
+  padding-block: 0.7rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  color: inherit;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand-name {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.brand-trade {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.nav a,
+.header-call,
+.footer-links a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 700;
+}
+
+.header-call {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+}
+
+.hero {
+  padding-block: 2rem 3rem;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.kicker,
+.idx {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1,
+h2 {
+  margin: 0.35rem 0 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+h1 {
+  font-size: clamp(2.45rem, 1.2rem + 3.2vw, 4.15rem);
+  max-width: 12em;
+}
+
+.lede {
+  margin: 1rem 0 0;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  color: var(--ink);
+}
+
+.actions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.15rem;
+  min-height: 4.75rem;
+  padding: 0.9rem 1.15rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  line-height: 1.2;
+}
+
+.btn-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.btn-num {
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.btn-fill {
+  background: var(--cedar);
+  border-color: var(--cedar);
+  color: var(--on-dark);
+}
+
+.btn-fill:hover {
+  background: var(--cedar-dark);
+  border-color: var(--cedar-dark);
+}
+
+.btn-line {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn-line:hover {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.hero-photos {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+}
+
+figure {
+  margin: 0;
+}
+
+picture {
+  display: block;
+  background: #ddd2c2;
+}
+
+figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.hero-inset {
+  width: min(64%, 18rem);
+  margin-top: 0.7rem;
+}
+
+.work {
+  padding-block: 3rem 3.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.section-head h2 {
+  font-size: clamp(2rem, 1.2rem + 2.2vw, 3.2rem);
+}
+
+.work-grid {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 1.75rem;
+}
+
+.shot-deck {
+  width: 78%;
+  margin-left: auto;
+}
+
+.shot-shop {
+  width: 100%;
+}
+
+.services {
+  background: var(--oak);
+  padding-block: 3rem 3.5rem;
+}
+
+.services-layout {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.menu {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  container-type: inline-size;
+}
+
+.menu li {
+  display: flex;
+  align-items: last baseline;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.menu .name {
+  flex: 1 1 auto;
+  min-width: min(100%, 12rem);
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 0.95rem + 1vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.menu .price {
+  flex: 0 0 auto;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.dots {
+  flex: 1 0 1.5rem;
+  border-bottom: 1px dotted var(--ink-soft);
+  transform: translateY(-0.28em);
+}
+
+@container (max-width: 36rem) {
+  .dots {
+    display: none;
+  }
+}
+
+.visit {
+  background: var(--walnut);
+  color: var(--on-dark);
+  padding-block: 3rem 3.5rem;
+}
+
+.visit .idx {
+  color: var(--on-dark-soft);
+}
+
+.visit h3 {
+  margin: 0 0 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+}
+
+.visit-grid {
+  display: grid;
+  gap: 2.25rem;
+  margin-top: 1.75rem;
+}
+
+.hours {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.hours div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(244, 239, 230, 0.28);
+}
+
+.hours dt {
+  font-weight: 700;
+}
+
+.hours dd {
+  margin: 0;
+  text-align: right;
+}
+
+.fine {
+  margin: 0.85rem 0 0;
+  color: var(--on-dark-soft);
+}
+
+.status {
+  margin: 0.4rem 0 0;
+  font-weight: 700;
+}
+
+.status:empty {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+address p {
+  margin: 0 0 0.85rem;
+}
+
+.visit .lede {
+  color: var(--on-dark);
+}
+
+.visit .btn-fill {
+  background: var(--on-dark);
+  border-color: var(--on-dark);
+  color: var(--walnut);
+}
+
+.visit .btn-fill:hover {
+  background: var(--on-dark-soft);
+  border-color: var(--on-dark-soft);
+  color: var(--ink);
+}
+
+.visit .btn-line {
+  border-color: var(--on-dark);
+  color: var(--on-dark);
+}
+
+.visit .btn-line:hover {
+  background: var(--on-dark);
+  color: var(--walnut);
+}
+
+.visit :focus-visible {
+  outline-color: var(--on-dark);
+}
+
+.site-footer {
+  padding-block: 1.75rem 2.25rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1rem 2rem;
+}
+
+.footer-name {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.footer-grid p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.footer-links a {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+@media (min-width: 46rem) {
+  html {
+    scroll-padding-top: 6rem;
+  }
+
+  .header-bar {
+    flex-wrap: nowrap;
+    min-height: 4.5rem;
+  }
+
+  .nav {
+    order: 2;
+  }
+
+  .header-call {
+    order: 3;
+  }
+}
+
+@media (min-width: 60rem) {
+  .hero {
+    padding-block: 3.25rem 4.25rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .work,
+  .services,
+  .visit {
+    padding-block: 4.5rem 5rem;
+  }
+
+  .work-grid {
+    grid-template-columns: 1.45fr 0.85fr;
+    grid-template-areas:
+      "kitchen deck"
+      "workshop workshop";
+    gap: 1.5rem 1.75rem;
+    align-items: start;
+  }
+
+  .shot-kitchen { grid-area: kitchen; }
+  .shot-deck {
+    grid-area: deck;
+    width: auto;
+    margin-left: 0;
+  }
+  .shot-shop {
+    grid-area: workshop;
+    width: 100%;
+  }
+
+  .services-layout {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .services .section-head {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .visit-grid {
+    grid-template-columns: 1fr 1fr 1.15fr;
+    gap: 2rem 2.5rem;
+    align-items: start;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.3fr 1fr 1fr auto;
+    align-items: start;
+  }
+}
+
+@media (max-width: 45.99rem) {
+  .header-call {
+    flex: 1 0 100%;
+    justify-content: center;
+    padding-block: 0.35rem;
+    border-top: 1px solid var(--rule);
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skip-link {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .btn {
+    border-width: 3px;
+  }
+
+  .menu li,
+  .hours div {
+    border-bottom-color: currentColor;
+  }
+}
+
+@media (forced-colors: active) {
+  .btn {
+    border: 2px solid ButtonText;
+  }
+
+  picture {
+    background: transparent;
+  }
+}
+
+@media print {
+  .site-header,
+  .skip-link {
+    position: static;
+  }
+
+  .visit {
+    background: white;
+    color: black;
+  }
+
+  .visit .idx,
+  .visit h3,
+  .fine,
+  .visit .lede {
+    color: black;
+  }
+
+  .btn {
+    border-color: black;
+    color: black;
+    background: white;
+  }
+}
